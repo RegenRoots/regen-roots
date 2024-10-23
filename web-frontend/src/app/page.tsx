@@ -9,16 +9,12 @@ import {
   Users,
   BarChart3,
   ShieldCheck,
-  Sprout,
-  Coins,
   Globe,
-  BookOpen,
-  Award,
   Zap,
-  ChevronDown,
-  Menu,
   X,
-  Check,
+  Menu,
+  Award,
+
 } from "lucide-react";
 import Image from "next/image";
 import {
@@ -248,7 +244,7 @@ export default function RegenRootsLanding() {
                   description:
                     "Monitor and showcase improvements in biodiversity and carbon sequestration with real-time data and analytics.",
                 },
-              ].map((feature, index) => (
+              ].map((feature) => (
                 <motion.div
                   key={feature.title}
                   variants={fadeInUpVariants}
@@ -311,7 +307,7 @@ export default function RegenRootsLanding() {
                   description:
                     "Shape agricultural policies and practices through data-driven insights and successful case studies.",
                 },
-              ].map((vision, index) => (
+              ].map((vision) => (
                 <motion.div
                   key={vision.title}
                   variants={fadeInUpVariants}
@@ -371,7 +367,7 @@ export default function RegenRootsLanding() {
                   description:
                     "Leverage artificial intelligence and machine learning for predictive analytics on crop yields and environmental outcomes.",
                 },
-              ].map((tech, index) => (
+              ].map((tech) => (
                 <motion.div
                   key={tech.title}
                   variants={fadeInUpVariants}
@@ -526,7 +522,7 @@ export default function RegenRootsLanding() {
                   <CardHeader className="bg-green-600 text-white">
                     <CardTitle className="text-2xl">Our Progress</CardTitle>
                     <CardDescription className="text-green-100">
-                      We're 66% of the way to launch!
+                      We &lsquo; re 20% of the way to launch!
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="pt-6">
