@@ -1,4 +1,4 @@
-// app/page.tsx
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -522,7 +522,7 @@ export default function RegenRootsLanding() {
                   <CardHeader className="bg-green-600 text-white">
                     <CardTitle className="text-2xl">Our Progress</CardTitle>
                     <CardDescription className="text-green-100">
-                      We &lsquo; re 20% of the way to launch!
+                      We&lsquo;re 20% of the way to launch!
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="pt-6">
@@ -781,9 +781,9 @@ export default function RegenRootsLanding() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Contact</h3>
               <p className="text-sm text-green-200">
-                Email: info@regenroots.com
+                Email: rootsregen4@gmail.com
               </p>
-              <p className="text-sm text-green-200">Phone: (123) 456-7890</p>
+              <p className="text-sm text-green-200">Phone: +254718677978</p>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
