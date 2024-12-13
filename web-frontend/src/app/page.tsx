@@ -111,13 +111,13 @@ export default function RegenRootsLanding() {
 
       {/* Header */}
       <header className="px-4 lg:px-6 h-16 flex items-center border-b sticky top-0 bg-white bg-opacity-90 backdrop-blur-sm z-40">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center" style={{ gap: "6px" }}>
           <Image
-            src="/placeholder.svg"
+            src="/images/rootsregen.svg"
             alt="Regen Roots Logo"
-            width={40}
-            height={40}
-            className="h-10 w-10"
+            width={120}
+            height={120}
+            className="h-40 w-40"
           />
           <span className="text-2xl font-bold text-green-800">Regen Roots</span>
         </div>
