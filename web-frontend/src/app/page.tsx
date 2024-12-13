@@ -12,6 +12,10 @@ import {
   Globe,
   Zap,
   X,
+  Sprout,
+  Coins,
+  BookOpen,
+  ChevronDown,
   Menu,
   Award,
 
@@ -33,19 +37,30 @@ import {
 } from "@/components/ui/accordion";
 import { Progress } from "@/components/ui/progress";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
+// const inter = Inter({ subsets: ['latin'] })
 
 export default function RegenRootsLanding() {
-  const [email, setEmail] = useState("");
-  const [progress, setProgress] = useState(0);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { scrollYProgress } = useScroll();
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [progress, setProgress] = useState(0)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { scrollYProgress } = useScroll()
+
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Submitted email:", email);
-    setEmail("");
-    alert("Thank you for joining our waitlist!");
-  };
+    e.preventDefault()
+    try {
+      console.log('Submitted form data:', { name, email, phone })
+      setName('')
+      setEmail('')
+      setPhone('')
+      alert('Thank you for joining our waitlist! We\'ll keep you updated on our launch.')
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      alert('An error occurred while submitting the form. Please try again.')
+    }
+  }
 
   useEffect(() => {
     const timer = setTimeout(() => setProgress(66), 500);
@@ -87,7 +102,7 @@ export default function RegenRootsLanding() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-green-50 via-white to-green-50">
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-green-50 via-white to-green-50" >
       {/* Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-green-500 z-50"
@@ -165,7 +180,7 @@ export default function RegenRootsLanding() {
         {/* Hero Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-br from-green-100 to-green-50">
           {/* Hero Content */}
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 mx-auto">
             <motion.div
               className="flex flex-col items-center space-y-4 text-center"
               initial="hidden"
@@ -208,7 +223,7 @@ export default function RegenRootsLanding() {
 
         {/* Features Section */}
         <section id="features" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 mx-auto">
             <motion.h2
               className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12 text-green-800"
               initial="hidden"
@@ -271,7 +286,7 @@ export default function RegenRootsLanding() {
           id="vision"
           className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-green-100 to-white"
         >
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 mx-auto">
             <motion.h2
               className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12 text-green-800"
               initial="hidden"
@@ -331,7 +346,7 @@ export default function RegenRootsLanding() {
 
         {/* Technology Section */}
         <section id="technology" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 mx-auto">
             <motion.h2
               className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12 text-green-800"
               initial="hidden"
@@ -392,7 +407,7 @@ export default function RegenRootsLanding() {
           id="how-it-works"
           className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-green-50 to-white"
         >
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 mx-auto">
             <motion.h2
               className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12 text-green-800"
               initial="hidden"
@@ -501,7 +516,7 @@ export default function RegenRootsLanding() {
 
         {/* Progress Section */}
         <section id="roadmap" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 mx-auto">
             <motion.h2
               className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12 text-green-800"
               initial="hidden"
@@ -611,11 +626,9 @@ export default function RegenRootsLanding() {
         </section>
 
         {/* Signup Section */}
-        <section
-          id="signup"
-          className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-green-50 to-white"
-        >
-          <div className="container px-4 md:px-6">
+
+        <section id="signup" className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-green-50 to-white">
+          <div className="container px-4 md:px-6 mx-auto">
             <div className="flex flex-col items-center space-y-4 text-center">
               <motion.div
                 className="space-y-2"
@@ -625,38 +638,50 @@ export default function RegenRootsLanding() {
                 variants={fadeInUpVariants}
               >
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-green-800">
-                  Join the Regenerative Revolution
+                  Be Part of the Regenerative Revolution
                 </h2>
                 <p className="mx-auto max-w-[600px] text-gray-600 md:text-xl">
-                  Be part of the future of sustainable agriculture.
+                  Join our waiting list to be among the first to access Regen Roots and help shape the future of agriculture.
                 </p>
               </motion.div>
               <motion.div
-                className="w-full max-w-sm space-y-2"
+                className="w-full max-w-md space-y-4"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInUpVariants}
               >
-                <form onSubmit={handleSubmit} className="flex space-x-2">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <Input
-                    className="flex-1"
+                    className="w-full rounded-full border-green-300 focus:border-green-500 focus:ring focus:ring-green-200 focus:ring-opacity-50"
+                    placeholder="Enter your name"
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                  />
+                  <Input
+                    className="w-full rounded-full border-green-300 focus:border-green-500 focus:ring focus:ring-green-200 focus:ring-opacity-50"
                     placeholder="Enter your email"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
                   />
-                  <Button
-                    type="submit"
-                    className="bg-green-600 hover:bg-green-700 text-white"
-                  >
+                  <Input
+                    className="w-full rounded-full border-green-300 focus:border-green-500 focus:ring focus:ring-green-200 focus:ring-opacity-50"
+                    placeholder="Enter your phone number"
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    required
+                  />
+                  <Button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white rounded-full px-6 py-3 text-lg font-semibold transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform">
                     Join Waitlist
                   </Button>
                 </form>
                 <p className="text-xs text-gray-600">
-                  By signing up, you agree to our Terms of Service and Privacy
-                  Policy.
+                  By signing up, you agree to our Terms of Service and Privacy Policy.
                 </p>
               </motion.div>
             </div>
@@ -668,7 +693,7 @@ export default function RegenRootsLanding() {
           id="faq"
           className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-green-50 to-white"
         >
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-6 mx-auto">
             <motion.h2
               className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12 text-green-800"
               initial="hidden"
@@ -732,7 +757,7 @@ export default function RegenRootsLanding() {
 
       {/* Footer */}
       <footer className="w-full py-12 bg-green-800 text-white">
-        <div className="container px-4 md:px-6">
+        <div className="container px-4 md:px-6 mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
               <h3 className="text-lg font-semibold mb-4">About Us</h3>
