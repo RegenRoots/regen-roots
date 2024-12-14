@@ -39,7 +39,7 @@ export default function RegenRootsLanding() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
-  const [progress, setProgress] = useState(0)
+  // const [progress, setProgress] = useState(0)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { scrollYProgress } = useScroll()
 
@@ -58,10 +58,10 @@ export default function RegenRootsLanding() {
     }
   }
 
-  useEffect(() => {
-    const timer = setTimeout(() => setProgress(66), 500);
-    return () => clearTimeout(timer);
-  }, []);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => setProgress(66), 500);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
