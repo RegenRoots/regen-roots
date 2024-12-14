@@ -37,7 +37,7 @@ import { motion, AnimatePresence, useScroll } from "framer-motion";
 export default function RegenRootsLanding() {
   // const [name, setName] = useState('')
   // const [email, setEmail] = useState('')
-  // const [phone, setPhone] = useState('')
+  // const [phone, setPhone] = useState('') 
   // const [progress, setProgress] = useState(0)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { scrollYProgress } = useScroll()
@@ -655,7 +655,7 @@ export default function RegenRootsLanding() {
                   Join Waitlist
                 </a>
                 <p className="text-xs text-gray-600">
-                  By clicking "Join Waitlist," you agree to our Terms of Service and Privacy Policy.
+                  By clicking &quot;Join Waitlist&quot;, you agree to our Terms of Service and Privacy Policy.
                 </p>
               </motion.div>
             </div>
