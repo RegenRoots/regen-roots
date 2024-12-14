@@ -35,9 +35,9 @@ import { motion, AnimatePresence, useScroll } from "framer-motion";
 // const inter = Inter({ subsets: ['latin'] })
 
 export default function RegenRootsLanding() {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
+  // const [name, setName] = useState('')
+  // const [email, setEmail] = useState('')
+  // const [phone, setPhone] = useState('')
   // const [progress, setProgress] = useState(0)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { scrollYProgress } = useScroll()
