@@ -3,7 +3,6 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   Leaf,
   Users,
@@ -44,19 +43,19 @@ export default function RegenRootsLanding() {
   const { scrollYProgress } = useScroll()
 
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    try {
-      console.log('Submitted form data:', { name, email, phone })
-      setName('')
-      setEmail('')
-      setPhone('')
-      alert('Thank you for joining our waitlist! We\'ll keep you updated on our launch.')
-    } catch (error) {
-      console.error('Error submitting form:', error)
-      alert('An error occurred while submitting the form. Please try again.')
-    }
-  }
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault()
+  //   try {
+  //     console.log('Submitted form data:', { name, email, phone })
+  //     setName('')
+  //     setEmail('')
+  //     setPhone('')
+  //     alert('Thank you for joining our waitlist! We\'ll keep you updated on our launch.')
+  //   } catch (error) {
+  //     console.error('Error submitting form:', error)
+  //     alert('An error occurred while submitting the form. Please try again.')
+  //   }
+  // }
 
   // useEffect(() => {
   //   const timer = setTimeout(() => setProgress(66), 500);
@@ -647,42 +646,23 @@ export default function RegenRootsLanding() {
                 viewport={{ once: true }}
                 variants={fadeInUpVariants}
               >
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <Input
-                    className="w-full rounded-full border-green-300 focus:border-green-500 focus:ring focus:ring-green-200 focus:ring-opacity-50"
-                    placeholder="Enter your name"
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                  />
-                  <Input
-                    className="w-full rounded-full border-green-300 focus:border-green-500 focus:ring focus:ring-green-200 focus:ring-opacity-50"
-                    placeholder="Enter your email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                  <Input
-                    className="w-full rounded-full border-green-300 focus:border-green-500 focus:ring focus:ring-green-200 focus:ring-opacity-50"
-                    placeholder="Enter your phone number"
-                    type="tel"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    required
-                  />
-                  <Button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white rounded-full px-6 py-3 text-lg font-semibold transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform">
-                    Join Waitlist
-                  </Button>
-                </form>
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSfC35-KYJtzW5I_1mmFbtQZZQUgHNV0tRfqMbRc9mr2j4Hfeg/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-green-600 hover:bg-green-700 text-white rounded-full px-6 py-3 text-lg font-semibold transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform text-center block"
+                >
+                  Join Waitlist
+                </a>
                 <p className="text-xs text-gray-600">
-                  By signing up, you agree to our Terms of Service and Privacy Policy.
+                  By clicking "Join Waitlist," you agree to our Terms of Service and Privacy Policy.
                 </p>
               </motion.div>
             </div>
           </div>
         </section>
+
+
 
         {/* FAQ Section */}
         <section
