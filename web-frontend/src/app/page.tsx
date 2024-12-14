@@ -510,7 +510,7 @@ export default function RegenRootsLanding() {
           </div>
         </section>
 
-        {/* Progress Section */}
+        {/* Progress Section
         <section id="roadmap" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6 mx-auto">
             <motion.h2
@@ -619,7 +619,7 @@ export default function RegenRootsLanding() {
               </Accordion>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Signup Section */}
 
