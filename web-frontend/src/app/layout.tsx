@@ -16,7 +16,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Regen Roots",
-  description: "GA decentralized platform connecting regenerative farmers with investors",
+  description: "A decentralized platform connecting regenerative farmers with investors",
 };
 
 export default function RootLayout({
