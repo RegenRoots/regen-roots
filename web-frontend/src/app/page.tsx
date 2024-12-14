@@ -12,10 +12,6 @@ import {
   Globe,
   Zap,
   X,
-  Sprout,
-  Coins,
-  BookOpen,
-  ChevronDown,
   Menu,
   Award,
 
