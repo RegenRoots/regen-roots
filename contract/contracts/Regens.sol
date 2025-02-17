@@ -5,6 +5,7 @@ import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/utils/Pausable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "./FarmToken.sol";
 
 /**
  * @title IFarmRegistry
@@ -49,6 +50,8 @@ contract FarmRegistry is AccessControl, Pausable, IFarmRegistry {
     uint256 public verificationFee;
     uint256 public registrationFee;
     
+    FarmToken public farmToken;
+    
     event FarmRegistered(uint256 indexed farmId, address indexed owner, string name);
     event FarmVerified(uint256 indexed farmId, address indexed verifier);
     event FarmUpdated(uint256 indexed farmId, string metadataURI);
@@ -61,10 +64,11 @@ contract FarmRegistry is AccessControl, Pausable, IFarmRegistry {
         _;
     }
     
-    constructor(uint256 _registrationFee, uint256 _verificationFee) payable {
+    constructor(uint256 _registrationFee, uint256 _verificationFee, address _farmToken) payable {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         registrationFee = _registrationFee;
         verificationFee = _verificationFee;
+        farmToken = FarmToken(_farmToken);
     }
     
     function registerFarm(
@@ -141,6 +145,12 @@ contract FarmRegistry is AccessControl, Pausable, IFarmRegistry {
         registrationFee = _newRegistrationFee;
         verificationFee = _newVerificationFee;
         emit FeesUpdated(_newRegistrationFee, _newVerificationFee);
+    }
+    
+    function tokenizeFarm(uint256 farmId) external onlyFarmOwner(farmId) {
+        require(farms[farmId].isActive, "Farm not active");
+        // Mint a token representing the farm
+        farmToken.mint(msg.sender, farmId);
     }
     
     // View functions
