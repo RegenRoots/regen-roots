@@ -247,7 +247,7 @@ contract InvestmentManager is AccessControl, ReentrancyGuard, Pausable {
         supportedTokens[address(0)] = true; // Enable ETH by default
     }
     
-    function invest(
+    function invest(    
         uint256 _farmId,
         address _tokenAddress,
         uint256 _amount,

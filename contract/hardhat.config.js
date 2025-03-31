@@ -1,44 +1,30 @@
-/**
- * @type import('hardhat/config').HardhatUserConfig
- */
-
-require('@nomiclabs/hardhat-ethers');
-require("@nomiclabs/hardhat-waffle");
-
-const { PrivateKey } = require('./secret.json');
+require("dotenv").config();
+require("@nomicfoundation/hardhat-toolbox");
 
 module.exports = {
-   defaultNetwork: 'testnet',
-
-   networks: {
-      hardhat: {
-      },
-      testnet: {
-         url: 'https://rpc.test.btcs.network',
-         accounts: [PrivateKey],
-         chainId: 1115,
-      }
-   },
-   solidity: {
-      compilers: [
-        {
-           version: '0.8.24',
-           settings: {
-              evmVersion: 'paris',
-              optimizer: {
-                 enabled: true,
-                 runs: 200,
-              },
-           },
+  solidity: "0.8.24",
+  paths: {
+    artifacts: "./src",
+  },
+  networks: {
+    opencampus: {
+      url: `https://rpc.open-campus-codex.gelato.digital/`,
+      accounts: [process.env.ACCOUNT_PRIVATE_KEY],
+    },
+  },
+  etherscan: {
+   apiKey: {
+      opencampus: "XXX", // no key required
+    },
+    customChains: [
+      {
+        network: "opencampus",
+        chainId: 656476,
+        urls: {
+          apiURL: "https://opencampus-codex.blockscout.com/api",
+          browserURL: "https://opencampus-codex.blockscout.com/",
         },
-      ],
-   },
-   paths: {
-      sources: './contracts',
-      cache: './cache',
-      artifacts: './artifacts',
-   },
-   mocha: {
-      timeout: 20000,
-   },
+      },
+    ],
+  },
 };
