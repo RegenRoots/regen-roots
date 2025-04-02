@@ -36,6 +36,18 @@ async function main() {
   );
   await marketplace.waitForDeployment();
   console.log("Marketplace deployed to:", marketplace.target);
+
+  // Deploy LoanManager with the FarmToken address as collateral
+  const LoanManager = await ethers.getContractFactory("LoanManager");
+  const loanManager = await LoanManager.deploy(farmToken.target);
+  await loanManager.waitForDeployment();
+  console.log("LoanManager deployed to:", loanManager.target);
+
+  // Deploy ImpactTracker
+  const ImpactTracker = await ethers.getContractFactory("ImpactTracker");
+  const impactTracker = await ImpactTracker.deploy();
+  await impactTracker.waitForDeployment();
+  console.log("ImpactTracker deployed to:", impactTracker.target);
 }
 
 main()
